@@ -5,8 +5,6 @@
 .htaccess
 config.php
 verify.php
-posts/*.md
-posts/*.jpg
 templates/clear/
 templates/typographic/
 templates/cards/
