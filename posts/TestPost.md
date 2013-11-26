@@ -1,9 +1,9 @@
 # Test Post
--- Gummadi
--- Gummadi
--- 2013/04/28
--- Random
--- published
+- Gummadi
+- Gummadi
+- 2013/04/28
+- Random
+- published
 
 
 ## Welcome to MarkdownPad 2 ##
