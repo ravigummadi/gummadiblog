@@ -446,6 +446,7 @@ else {
     <html>
         <head>
             <meta charset="utf-8" />
+	    <meta name="google-site-verification" content="C0KLlFMPyh08euPQ1tX1mDk3Smxl-2yWgkY-9BMslH0" />
             <title>Let's Get Started</title>
             <link rel="stylesheet" href="./dropplets/style/style.css" />
             <link href='http://fonts.googleapis.com/css?family=Lato:100,300' rel='stylesheet' type='text/css'>
