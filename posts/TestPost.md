@@ -3,7 +3,7 @@
 - Gummadi
 - 2013/04/28
 - Random
-- published
+- draft
 
 
 ## Welcome to MarkdownPad 2 ##
