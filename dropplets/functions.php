@@ -186,6 +186,25 @@ function get_posts_for_category($category) {
 }
 
 /*-----------------------------------------------------------------------------------*/
+/* Get Image for a Post
+/*-----------------------------------------------------------------------------------*/
+function get_post_image_url($filename)
+{
+    global $blog_url;
+    $supportedFormats = array( "jpg", "png", "gif" );
+    $slug = pathinfo($filename, PATHINFO_FILENAME);
+
+    foreach($supportedFormats as $fmt)
+    {
+        $imgFile = sprintf("%s%s.%s", POSTS_DIR, $slug, $fmt);
+        if (file_exists($imgFile))
+            return sprintf("%s/%s.%s", "${blog_url}posts", $slug, $fmt);
+    }
+
+    return false;
+}
+
+/*-----------------------------------------------------------------------------------*/
 /* Post Pagination
 /*-----------------------------------------------------------------------------------*/
 
@@ -288,15 +307,16 @@ function count_premium_templates($type = 'all') {
 /* If is Home (Could use "is_single", "is_category" as well.)
 /*-----------------------------------------------------------------------------------*/
 
-$homepage = BLOG_URL;
+$homepage = parse_url(BLOG_URL, PHP_URL_PATH);
 
 // Get the current page.    
-$currentpage  = @( $_SERVER["HTTPS"] != 'on' ) ? 'http://'.$_SERVER["SERVER_NAME"] : 'https://'.$_SERVER["SERVER_NAME"];
-$currentpage .= $_SERVER["REQUEST_URI"];
+$currentpage  = $_SERVER["REQUEST_URI"];
 
 // If is home.
 $is_home = ($homepage==$currentpage);
 define('IS_HOME', $is_home);
+define('IS_CATEGORY', (bool)strstr($_SERVER['REQUEST_URI'], '/category/'));
+define('IS_SINGLE', !(IS_HOME || IS_CATEGORY));
 
 /*-----------------------------------------------------------------------------------*/
 /* Get Profile Image
@@ -305,13 +325,18 @@ define('IS_HOME', $is_home);
 function get_twitter_profile_img($username) {
 	
 	// Get the cached profile image.
-	$profile_image = './cache/'.$username.'.jpg';
-	
+    $cache = IS_CATEGORY ? '.' : '';
+    $array = split('/category/', $_SERVER['REQUEST_URI']);
+    $array = split('/', $array[1]);
+    if(count($array)!=1) $cache .= './.';
+    $cache .= './cache/';
+	$profile_image = $cache.$username.'.jpg';
+
 	// Cache the image if it doesn't already exist.
 	if (!file_exists($profile_image)) {
 	    $image_url = 'http://dropplets.com/profiles/?id='.$username.'';
 	    $image = file_get_contents($image_url);
-	    file_put_contents('./cache/'.$username.'.jpg', $image);
+	    file_put_contents($cache.$username.'.jpg', $image);
 	}
 	
 	// Return the image URL.
@@ -354,9 +379,9 @@ function get_header() { ?>
 
 function get_footer() { ?>
     <!-- jQuery & Required Scripts -->
-    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
     
-    <?php if (PAGINATION_ON_OFF !== "off") { ?>
+    <?php if (!IS_SINGLE && PAGINATION_ON_OFF !== "off") { ?>
     <!-- Post Pagination -->
     <script>
         var infinite = true;
@@ -367,6 +392,10 @@ function get_footer() { ?>
             function load_next_page() {
                 $.ajax({
                     url: "index.php?page=" + next_page,
+                    beforeSend: function () {
+                        $('body').append('<article class="loading-frame"><div class="row"><div class="one-quarter meta"></div><div class="three-quarters"><img src="./templates/<?php echo(ACTIVE_TEMPLATE); ?>/loading.gif" alt="Loading"></div></div></article>');
+                        $("body").animate({ scrollTop: $("body").scrollTop() + 250 }, 1000);
+                    },
                     success: function (res) {
                         next_page++;
                         var result = $.parseHTML(res);
@@ -374,11 +403,17 @@ function get_footer() { ?>
                             return $(this).is('article');
                         });
                         if (articles.length < 2) {  //There's always one default article, so we should check if  < 2
+                            $('.loading-frame').html('You\'ve reached the end of this list.');
                             no_more_posts = true;
                         }  else {
-                            $('body').append(articles.slice(1));
+                            $('.loading-frame').remove();
+                            $('body').append(articles);
                         }
                         loading = false;
+                    },
+                    error: function() {
+                        $('.loading-frame').html('An error occurred while loading posts.');
+                        //keep loading equal to false to avoid multiple loads. An error will require a manual refresh
                     }
                 });
             }
