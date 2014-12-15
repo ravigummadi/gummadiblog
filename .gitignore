@@ -7,9 +7,6 @@
 config.php
 verify.php
 
-posts/*.md
-posts/*.jpg
-
 templates/*
 !templates/simple/
 
