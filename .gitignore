@@ -13,7 +13,6 @@ templates/*
 plugins/*
 !plugins/index.php
 
-posts/*
 !posts/index.php
 
 cache/*.png
