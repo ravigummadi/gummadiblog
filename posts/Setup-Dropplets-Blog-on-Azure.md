@@ -1,9 +1,9 @@
 # Setting up Blog using Dropplets on Azure Websites
 - Gummadi
 - Gummadi
-- 2014-12-12
+- 2014-12-15
 - Dropplets, Blogging, Azure Websites
-- pubished
+- published
 
 I have looked at various ways of setting up my blog with the following requirements:
 
@@ -32,27 +32,26 @@ The downloaded zip file has the following directories:
 * **Windows**: [Set up IIS on Windows](http://support.microsoft.com/kb/323972), create a website and copy the contents of the folder to that site.
 	* In addition to creating the site, you also need to create a `web.config` for IIS to recognize this site. Here is mine:
 
-	<?xml version="1.0"?>
-		<configuration>
-		    <system.web>
-		        <compilation debug="false" targetFramework="4.0" />
-		    </system.web>
-	
-	    	<system.webServer>
-		         <rewrite>
-		            <rules>
-		               <rule name="Main Rule" stopProcessing="true">
-		                  <match url="(.*)" />
-		                  <conditions logicalGrouping="MatchAll">
-		                    <add input="{REQUEST_FILENAME}" matchType="IsFile" negate="true" />
-		                    <add input="{REQUEST_FILENAME}" matchType="IsDirectory" negate="true" />
-		                  </conditions>
-		                  <action type="Rewrite" url="index.php?filename={R:1}" />
-		               </rule>
-		            </rules>
-		         </rewrite>
-	      	</system.webServer>
-		</configuration>
+    <?xml version="1.0"?>
+    <configuration>
+    	<system.web>
+    		<compilation debug="false" targetFramework="4.0" />
+    	</system.web>
+    	<system.webServer>
+    		 <rewrite>
+    			<rules>
+    			   <rule name="Main Rule" stopProcessing="true">
+    				  <match url="(.*)" />
+    				  <conditions logicalGrouping="MatchAll">
+    					<add input="{REQUEST_FILENAME}" matchType="IsFile" negate="true" />
+    					<add input="{REQUEST_FILENAME}" matchType="IsDirectory" negate="true" />
+    				  </conditions>
+    				  <action type="Rewrite" url="index.php?filename={R:1}" />
+    			   </rule>
+    			</rules>
+    		 </rewrite>
+    	</system.webServer>
+    </configuration>		
 
 Once you set this up, you can successfully access the site from your local machine without any additional configuration. 
 
