@@ -12,7 +12,7 @@ I have looked at various ways of setting up my blog with the following requireme
 - [Markdown](http://daringfireball.net/projects/markdown/syntax) support
 - Open source
 
-[Dropplets](http://dropplets.com/) fit these requirements to the T. Its a simple PHP based blogging framework which supports Markdown. Its also actively maintained on [github](https://github.com/Circa75/dropplets). 
+[Dropplets](http://dropplets.com/) fits all these requirements. Its a simple PHP based blogging framework which supports Markdown. Its also actively maintained on [github](https://github.com/Circa75/dropplets). 
 
 ## Setup ##
 
@@ -84,13 +84,13 @@ This is a standard process, if you have any prior FTP experience:
 
 I use the **Github** option for the following reasons:
 
-* Maintain my blog posts under version control
-* Merge upstream changes from original [Dropplets repo](https://github.com/circa75/dropplets) so that I can stay on bleeding edge
-* Azure deploys your site when you do `git push` to your `master`, which makes the publishing part really easy. 
+* Maintain blog posts under version control
+* Merge upstream changes from original [Dropplets repo](https://github.com/circa75/dropplets) to stay on bleeding edge
+* Deploy your blog when you do a `git push` to your `master`
 
-Once you click the *Connect your github repository* on your website's dashboard, Azure guides you on how to hook up your existing repository to this website. If you face any issues doing that, refer to this [article](http://azure.microsoft.com/en-us/documentation/articles/web-sites-publish-source-control/#Step7).
+Once you click the *Connect your github repository* on the website's dashboard, Azure guides you on how to hook up the existing repository to the website. If you face any issues doing that, refer to this [article](http://azure.microsoft.com/en-us/documentation/articles/web-sites-publish-source-control/#Step7).
 
-Once you set this up, every time you do a `git push` to your `master`, your blog is automatically published. You can monitor your deployments from the `deployments` tab on your Azure website. Here is my screenshot:
+Once this is setup, every time you do a `git push` to your `master`, blog is automatically published. You can monitor your deployments from the `deployments` tab on your Azure website. Here is my screenshot:
 
 ![Azure Deployments](http://googledrive.com/host/0B-_fDRYNhz_Rdi1VSnVIN01WbUk/azure_deployments.png)
 
@@ -121,11 +121,11 @@ If the github repository is public, you don't want to checkin all the configurat
 
 ### Custom Domain on Azure ###
 
-If you do have a custom domain and want to point to your Azure website, select the configure tab and scroll down to *domain names* section. There you can add your custom domain by clicking *manage domains*
+If you want your custom domain to point to the Azure Website, select the configure tab and scroll down to *domain names* section. There you can add your custom domain by clicking *manage domains*
 
 ![Azure Deployments](http://googledrive.com/host/0B-_fDRYNhz_Rdi1VSnVIN01WbUk/domain_name.png)
 
 
 ## Final Thoughts ##
 
-I am pretty happy with how easy it is setup your blog using Dropplets. I would highly recommend this CMS, if you are a big fan of Markdown and want to host your own blog. If you have any feedback or want to share your experiences setting up Dropplets, feel free to reach out to me.  
+I am pretty happy with how easy it is setup your blog using Dropplets and how polished the blog looks. I would highly recommend Dropplets, if you are a big fan of Markdown and want to host your own blog. If you have any feedback or want to share your experiences setting up Dropplets, feel free to reach out to me.  
