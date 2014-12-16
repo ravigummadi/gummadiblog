@@ -29,8 +29,7 @@
                     <ul>
                         <li><?php echo($blog_title); ?></li>
                         <li><a href="mailto:<?php echo($blog_email); ?>?subject=Hello Ravi [via Blog]"><?php echo($blog_email); ?></a></li>
-                        <li><a href="http://twitter.com/<?php echo($blog_twitter); ?>">&#64;<?php echo($blog_twitter); ?></a></li>
-                        <li><a href="<?php echo($resume_url); ?>">Resume</a></li>
+                        <li><a href="http://twitter.com/<?php echo($blog_twitter); ?>">&#64;<?php echo($blog_twitter); ?></a></li>                        
                     </ul>
                 </div>
         
@@ -39,7 +38,9 @@
         
                     <p><?php echo($intro_text); ?></p>
 					
-					<p><li><?php echo($disclaimer); ?></p>
+					<p><a href="<?php echo($resume_url); ?>">Resume (in PDF format)</a></p>
+					
+					<p><i><?php echo($disclaimer); ?></i></p>
                     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
                 </div>
             </div>
