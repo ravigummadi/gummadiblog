@@ -31,8 +31,9 @@ The downloaded zip file has the following directories:
 * **MacOS/Linux**:[ Setup a Apache server](https://www.digitalocean.com/community/tutorials/how-to-set-up-apache-virtual-hosts-on-ubuntu-14-04-lts) and copy the extracted files to `/var/www` directory.
 * **Windows**: [Set up IIS on Windows](http://support.microsoft.com/kb/323972), create a website and copy the contents of the folder to that site.
 	* In addition to creating the site, you also need to create a `web.config` for IIS to recognize this site. Here is mine:
-
-    <?xml version="1.0"?>
+	
+```
+	<?xml version="1.0"?>
     <configuration>
     	<system.web>
     		<compilation debug="false" targetFramework="4.0" />
@@ -52,6 +53,7 @@ The downloaded zip file has the following directories:
     		 </rewrite>
     	</system.webServer>
     </configuration>		
+```
 
 Once you set this up, you can successfully access the site from your local machine without any additional configuration. 
 
