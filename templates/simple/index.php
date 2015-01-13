@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="<?php echo($template_dir_url); ?>subdiv.css">
         <link href='//fonts.googleapis.com/css?family=Merriweather:400,300,700' rel='stylesheet' type='text/css'>
         <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css'>
-        
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">        
         <?php get_header(); ?>
     </head>
 
@@ -48,7 +48,8 @@
         <?php } ?>
         
         <?php echo($content); ?>
-        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
         <?php get_footer(); ?>
     </body>
 </html>
