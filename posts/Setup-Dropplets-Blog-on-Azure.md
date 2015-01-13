@@ -32,9 +32,8 @@ The downloaded zip file has the following directories:
 * **Windows**: [Set up IIS on Windows](http://support.microsoft.com/kb/323972), create a website and copy the contents of the folder to that site.
 	* In addition to creating the site, you also need to create a `web.config` for IIS to recognize this site. Here is mine:
 	
-```
 	<?xml version="1.0"?>
-    <configuration>
+    	<configuration>
     	<system.web>
     		<compilation debug="false" targetFramework="4.0" />
     	</system.web>
@@ -52,8 +51,7 @@ The downloaded zip file has the following directories:
     			</rules>
     		 </rewrite>
     	</system.webServer>
-    </configuration>		
-```
+    	</configuration>		
 
 Once you set this up, you can successfully access the site from your local machine without any additional configuration. 
 
