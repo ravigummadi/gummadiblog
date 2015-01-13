@@ -433,6 +433,7 @@ else {
             <link href='http://fonts.googleapis.com/css?family=Lato:100,300' rel='stylesheet' type='text/css'>
             <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400' rel='stylesheet' type='text/css'>
             <link rel="shortcut icon" href="./dropplets/style/images/favicon.png">
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
         </head>
 
         <body class="dp-install">
@@ -470,6 +471,8 @@ else {
             		}
             	}
             </script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
         </body>
     </html>
 <?php 
