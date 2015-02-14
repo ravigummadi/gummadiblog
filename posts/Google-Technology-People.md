@@ -23,7 +23,7 @@ Coincidentally, I also finished [Biz Stone's Things a Little Bird Told Me](http:
 
 A company's culture and belief system is strongly modelled after their founders and most of their early hires would (and should?) be in sync with that. Therefore its incredibly tough, even though the company employs the smartest people  and has billions in revenue, to think outside the early constructs of the founders. *Google is no different!*
 
-***Disclaimer**: I work for Facebook, so this might seem biased. FWIW, I have written this long before joining Facebook. And of course, **this is my personal opinion and doesn’t represent views of Facebook**.*
+***Disclaimer**: I work for Facebook, so this might seem biased. FWIW, I have written this long before joining Facebook. And of course, **this is my personal opinion and doesn’t represent views of Facebook.***
 
 ## References 
 1. Facebook User Growth: https://d28wbuch0jlv7v.cloudfront.net/images/infografik/normal/ChartOfTheDay_870_Facebook_s_user_growth_since_2004_n.jpg
